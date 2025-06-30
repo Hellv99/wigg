@@ -1,0 +1,74 @@
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f7fafc;
+}
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Sticky header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Cart drawer transition */
+.cart-drawer {
+  transition: transform 0.3s ease-in-out;
+}
+.cart-drawer.open {
+  transform: translateX(0);
+}
+.cart-drawer.closed {
+  transform: translateX(100%);
+}
+
+/* Modal transitions */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s ease-in-out;
+}
+.modal-content {
+  transition: transform 0.3s ease-in-out;
+}
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-content.hidden {
+  transform: translateY(-20px);
+}
+
+/* Product image zoom (simple) */
+.product-zoom-container {
+  overflow: hidden;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+.product-zoom-image {
+  transition: transform 0.3s ease-out;
+  transform-origin: center center;
+}
+.product-zoom-image:hover {
+  transform: scale(1.1); /* Zoom effect */
+}
+
+/* Placeholder for disabled buttons */
+.btn-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
