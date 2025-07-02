@@ -1303,17 +1303,17 @@
               <div class="space-y-2">
                 <div class="flex justify-between text-gray-700">
                   <span>Subtotal:</span>
-                  <span id="orderSummarySubtotal">$0.00</span>
+                  <span id="orderSummarySubtotal">₦0.00</span>
                 </div>
                 <div class="flex justify-between text-gray-700">
                   <span>Shipping:</span>
-                  <span id="orderSummaryShipping">$0.00</span>
+                  <span id="orderSummaryShipping">₦0.00</span>
                 </div>
                 <div
                   class="flex justify-between text-pink-600 font-bold text-xl mt-4 pt-2 border-t border-gray-200"
                 >
                   <span>Order Total:</span>
-                  <span id="orderSummaryTotal">$0.00</span>
+                  <span id="orderSummaryTotal">₦0.00</span>
                 </div>
               </div>
             </div>
@@ -1836,12 +1836,12 @@
                           product.category
                         }</p>
                         <div class="flex items-center mb-3">
-                            <span class="text-pink-600 font-bold text-xl">$${product.salePrice.toFixed(
+                            <span class="text-pink-600 font-bold text-xl">₦${product.salePrice.toFixed(
                               2
                             )}</span>
                             ${
                               product.originalPrice
-                                ? `<span class="text-gray-400 line-through ml-2 text-sm">$${product.originalPrice.toFixed(
+                                ? `<span class="text-gray-400 line-through ml-2 text-sm">₦${product.originalPrice.toFixed(
                                     2
                                   )}</span>`
                                 : ""
@@ -2088,12 +2088,12 @@
                         </div>
 
                         <div class="flex items-baseline mb-6">
-                            <span id="displayPrice" class="text-pink-600 font-bold text-4xl">$${defaultVariation.price.toFixed(
+                            <span id="displayPrice" class="text-pink-600 font-bold text-4xl"₦${defaultVariation.price.toFixed(
                               2
                             )}</span>
                             ${
                               product.originalPrice
-                                ? `<span id="displayOriginalPrice" class="text-gray-400 line-through ml-3 text-lg">$${product.originalPrice.toFixed(
+                                ? `<span id="displayOriginalPrice" class="text-gray-400 line-through ml-3 text-lg">₦${product.originalPrice.toFixed(
                                     2
                                   )}</span>`
                                 : ""
@@ -2441,7 +2441,7 @@
 
         if (matchedVariation) {
           if (displayPriceElement)
-            displayPriceElement.textContent = `$${matchedVariation.price.toFixed(
+            displayPriceElement.textContent = `₦${matchedVariation.price.toFixed(
               2
             )}`;
           if (displayOriginalPriceElement && currentProduct.originalPrice) {
@@ -2450,7 +2450,7 @@
               displayOriginalPriceElement.style.display = "none";
             } else {
               displayOriginalPriceElement.style.display = "inline-block";
-              displayOriginalPriceElement.textContent = `$${currentProduct.originalPrice.toFixed(
+              displayOriginalPriceElement.textContent = `₦${currentProduct.originalPrice.toFixed(
                 2
               )}`;
             }
@@ -2461,12 +2461,12 @@
         } else {
           // Fallback to base product price if no variation matches (should ideally not happen with good data)
           if (displayPriceElement)
-            displayPriceElement.textContent = `$${currentProduct.salePrice.toFixed(
+            displayPriceElement.textContent = `₦${currentProduct.salePrice.toFixed(
               2
             )}`;
           if (displayOriginalPriceElement && currentProduct.originalPrice) {
             displayOriginalPriceElement.style.display = "inline-block";
-            displayOriginalPriceElement.textContent = `$${currentProduct.originalPrice.toFixed(
+            displayOriginalPriceElement.textContent = `₦${currentProduct.originalPrice.toFixed(
               2
             )}`;
           }
@@ -2706,7 +2706,7 @@
         if (code === "WIGS20") {
           const { subtotal } = calculateCartTotals();
           currentDiscount = subtotal * 0.2; // 20% off
-          discountMessage.textContent = `Success! $${currentDiscount.toFixed(
+          discountMessage.textContent = `Success! ₦${currentDiscount.toFixed(
             2
           )} discount applied.`;
           discountMessage.classList.remove("hidden");
@@ -2759,7 +2759,7 @@
                             <h4 class="font-semibold text-gray-800 text-base">${
                               item.name
                             }</h4>
-                            <p class="text-pink-600 font-bold text-md">$${item.price.toFixed(
+                            <p class="text-pink-600 font-bold text-md">₦${item.price.toFixed(
                               2
                             )}</p>
                         </div>
@@ -2788,13 +2788,13 @@
           });
         }
         const totals = calculateCartTotals();
-        cartSubtotal.textContent = `$${totals.subtotal.toFixed(2)}`;
+        cartSubtotal.textContent = `₦${totals.subtotal.toFixed(2)}`;
         // Cart drawer shipping is usually dynamic in checkout, keep static for now
         cartShipping.textContent =
           totals.shipping > 0
-            ? `$${totals.shipping.toFixed(2)}`
+            ? `₦${totals.shipping.toFixed(2)}`
             : "Calculated at checkout";
-        cartTotal.textContent = `$${(totals.subtotal - totals.discount).toFixed(
+        cartTotal.textContent = `₦${(totals.subtotal - totals.discount).toFixed(
           2
         )}`; // Cart total only considers subtotal and discount for drawer
       }
@@ -2969,7 +2969,7 @@
             "flex justify-between items-center text-gray-700 text-sm";
           itemDiv.innerHTML = `
                     <span>${item.name} (x${item.quantity})</span>
-                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>₦${(item.price * item.quantity).toFixed(2)}</span>
                 `;
           summaryItems.appendChild(itemDiv);
         });
@@ -2982,9 +2982,9 @@
         const discount = checkoutData.discountAmount || 0;
         const total = subtotal + shipping - discount;
 
-        summarySubtotal.textContent = `$${subtotal.toFixed(2)}`;
-        summaryShipping.textContent = `$${shipping.toFixed(2)}`;
-        summaryTotal.textContent = `$${total.toFixed(2)}`;
+        summarySubtotal.textContent = `₦${subtotal.toFixed(2)}`;
+        summaryShipping.textContent = `₦${shipping.toFixed(2)}`;
+        summaryTotal.textContent = `₦${total.toFixed(2)}`;
 
         if (checkoutData.shippingInfo) {
           const info = checkoutData.shippingInfo;
@@ -3108,12 +3108,12 @@
                                   product.category
                                 }</p>
                                 <div class="flex items-center mb-3">
-                                    <span class="text-pink-600 font-bold text-xl">$${product.salePrice.toFixed(
+                                    <span class="text-pink-600 font-bold text-xl">₦${product.salePrice.toFixed(
                                       2
                                     )}</span>
                                     ${
                                       product.originalPrice
-                                        ? `<span class="text-gray-400 line-through ml-2 text-sm">$${product.originalPrice.toFixed(
+                                        ? `<span class="text-gray-400 line-through ml-2 text-sm">₦${product.originalPrice.toFixed(
                                             2
                                           )}</span>`
                                         : ""
